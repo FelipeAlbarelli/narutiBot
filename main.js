@@ -50,13 +50,13 @@ app.stream('statuses/filter', {track: 'Naruti'},  function(stream) {
     });
   });
 
-const app = express()
+const app2 = express()
 const port = process.env.PORT || 3000;
 
-app.get('/', (req, res) => {
+app2.get('/', (req, res) => {
   res.send('Hello World!')
 })
 
-app.listen(port, () => {
+app2.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
 })
