@@ -1,5 +1,7 @@
 require('dotenv').config()
 const Twitter = require('twitter');
+const express = require('express')
+
 
 const app = new Twitter({
     consumer_key: process.env.API_KEY,
@@ -7,6 +9,19 @@ const app = new Twitter({
     access_token_key: process.env.ACCESS_TOKEN,
     access_token_secret: process.env.ACCESS_TOKEN_SECRET
 })
+
+const isSocrates = (text = '') => {
+    return [
+        'socrates', 
+        'Socrates', 
+        "Sócrates" , 
+        'sócrates', 
+        'socrates'.toLocaleUpperCase(), 
+        'Socrates'.toLocaleUpperCase(), 
+        "Sócrates".toLocaleUpperCase(), 
+        'sócrates'.toLocaleUpperCase()
+    ].some( i => text.includes(i) )
+}
 
 const reply = (tweet, text) => {
     const nameID = tweet.id_str;
@@ -25,9 +40,23 @@ const reply = (tweet, text) => {
 app.stream('statuses/filter', {track: 'Naruti'},  function(stream) {
     stream.on('data', function(tweet) {
         console.log(`${tweet.text}, por ${tweet.user.screen_name}, capdato na stream`)
+        // if (isSocrates(tweet.user.screen_name)){
+        //     reply(tweet, "O que foi Sócrates?");
+        // }
         reply(tweet, "Cada coisa né?");
     });
     stream.on('error', function(error) {
       console.log(error);
     });
   });
+
+const app = express()
+const port = process.env.PORT || 3000;
+
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
+
+app.listen(port, () => {
+  console.log(`Example app listening at http://localhost:${port}`)
+})
