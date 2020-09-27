@@ -11,7 +11,7 @@ const isSocrates = (text = '') => {
     ].some( i => text.includes(i) )
 }
 
-const reply = (tweet, text) => {
+const reply = (tweet, text , app) => {
     const nameID = tweet.id_str;
     const name = `@${tweet.user.screen_name} `
     var res = {
