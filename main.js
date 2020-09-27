@@ -17,7 +17,6 @@ const reply = (tweet, text) => {
     }
     app.post('statuses/update', res,
       function(err, data, response) {
-            console.log('data:', "*".repeat(20));
             console.log(`Respondendo ${data.in_reply_to_screen_name}`)
       }
     );
