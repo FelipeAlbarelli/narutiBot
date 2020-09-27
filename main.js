@@ -6,27 +6,20 @@ const app = new Twitter({
     consumer_secret: env.apiSecreteKey,
     access_token_key: env.accessToken,
     access_token_secret: env.accessTokenSecret
-    // bearer_token: env.bearerToken
 })
 
-// app.post('statuses/update', 
-//     {
-//         status: 'Dia.'
-//     },
-//     function(error, tweet, response) {
-//     if(error) throw error;
-//     console.log(tweet);  // Tweet body.
-// });
-
-const reply = function(tweet, text) {
+const reply = (tweet, text) => {
+    const nameID = tweet.id_str;
+    const name = `@${tweet.user.screen_name}`
     var res = {
-      status: text + tweet.user.screen_name,
-      in_reply_to_status_id: '' + tweet.id_str
+        status:  name + text,
+        in_reply_to_status_id: nameID
     };
-  
-    twitter.post('statuses/update', res,
+    console.log(tweet);
+    app.post('statuses/update', res,
       function(err, data, response) {
-        console.log(data);
+            console.log('data:', "*".repeat(20));
+            console.log(data)
       }
     );
 }
