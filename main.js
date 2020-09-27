@@ -17,9 +17,9 @@ app.stream('statuses/filter', {track: 'Naruti'},  function(stream) {
     stream.on('data', function(tweet) {
         console.log(`${tweet.text}, por ${tweet.user.screen_name}, capdato na stream`)
         if (functions.isSocrates(tweet.user.screen_name)) {
-            reply(tweet, "O que foi Sócrates?");
+            functions.reply(tweet, "O que foi Sócrates?");
         } else {
-            reply(tweet, "Cada coisa né?");
+            functions.reply(tweet, "Cada coisa né?");
         }
     });
     stream.on('error', function(error) {
