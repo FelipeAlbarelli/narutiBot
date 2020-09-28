@@ -12,13 +12,18 @@ const app = new Twitter({
 
 configSch(app);
 
-app.stream('statuses/filter', {track: 'Naruti'},  function(stream) {
+app.stream('statuses/filter', {track: 'Naruti,naruti,Marucho,marucho,Niraji,niraji,Miruchi,Miruchi,naruji,Naruji'},  function(stream) {
     stream.on('data', function(tweet) {
         console.log(`${tweet.text}, por ${tweet.user.screen_name}, capdato na stream`)
         if (functions.isSocrates(tweet.user.screen_name)) {
             functions.reply(tweet, "O que foi Sócrates?", app);
         } else {
-            functions.reply(tweet, "Cada coisa né?", app);
+            let i = Math.random() * 2
+            if (i >= 1){
+              functions.reply(tweet, "Cada coisa né?", app);
+            } else {
+              functions.reply(tweet, "Que coisa, hein.", app);
+            }
         }
     });
     stream.on('error', function(error) {

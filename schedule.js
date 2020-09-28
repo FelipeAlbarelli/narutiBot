@@ -17,17 +17,17 @@ const _config = (params = [{hour: 1 , min: 1, msg: 'hummmm'}], app) => {
 const config = (app) => {
     _config([
         {
-            hour: 8,
+            hour: 11,
             min: 0,
             msg: 'Dia'
         },
         {
-            hour: 13,
+            hour: 16,
             min: 0,
             msg: 'Buxin cheio :P'
         },
         {
-            hour: 23,
+            hour: 26,
             min: 30,
             msg: 'Bom, papo ta bom...'
         }
