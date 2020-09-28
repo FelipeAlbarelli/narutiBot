@@ -1,6 +1,5 @@
 require('dotenv').config()
 const Twitter = require('twitter');
-const express = require('express')
 const configSch = require('./schedule');
 const functions = require('./functions');
 
@@ -26,14 +25,3 @@ app.stream('statuses/filter', {track: 'Naruti'},  function(stream) {
       console.log(error);
     });
   });
-
-const app2 = express()
-const port = process.env.PORT || 3000;
-
-app2.get('/', (req, res) => {
-  res.send('Hello World!')
-})
-
-app2.listen(port, () => {
-  console.log(`Example app listening at port:${port}`)
-})
