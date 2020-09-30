@@ -12,7 +12,7 @@ const app = new Twitter({
 
 configSch(app);
 
-app.stream('statuses/filter', {track: 'Naruti,naruti,Marucho,marucho,Niraji,niraji,Miruchi,Miruchi,naruji,Naruji'},  function(stream) {
+app.stream('statuses/filter', {track: 'Naruti,naruti,Marucho,marucho,Niraji,niraji,Miruchi,Miruchi,naruji,Naruji,Maruchi,maruchi,naruchi,Naruchi'},  function(stream) {
     stream.on('data', function(tweet) {
         console.log(`${tweet.text}, por ${tweet.user.screen_name}, capdato na stream`)
         if (functions.isSocrates(tweet.user.screen_name)) {

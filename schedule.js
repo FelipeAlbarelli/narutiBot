@@ -27,21 +27,11 @@ const config = (app) => {
             msg: 'Buxin cheio :P'
         },
         {
-            hour: 26,
+            hour: 24,
             min: 30,
             msg: 'Bom, papo ta bom...'
         }
     ], app)
 }
-
-// var almoco = schedule.scheduleJob({
-//         hour: 13, 
-//         minute: 30 
-//         // dayOfWeek: 0
-//     }, function(){
-//         app.post('statuses/update' , {status: 'Buxin cheio! :p'} , (err , data , res) => {
-//             console.log('Mensagem Almoço')
-//         })
-//   });
 
 module.exports = config
