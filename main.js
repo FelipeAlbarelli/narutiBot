@@ -18,11 +18,13 @@ app.stream('statuses/filter', {track: 'Naruti,naruti,Marucho,marucho,Niraji,nira
         if (functions.isSocrates(tweet.user.screen_name)) {
             functions.reply(tweet, "O que foi Sócrates?", app);
         } else {
-            let i = Math.random() * 2
-            if (i >= 1){
+            let i = Math.random() * 3
+            if (i <= 1) {
               functions.reply(tweet, "Cada coisa né?", app);
-            } else {
+            } else if ( i> 1 && i<=2 ) {
               functions.reply(tweet, "Que coisa, hein.", app);
+            } else {
+              functions.reply(tweet , "Se você diz, né?", app)
             }
         }
     });

@@ -27,7 +27,7 @@ const config = (app) => {
             msg: 'Buxin cheio :P'
         },
         {
-            hour: 24,
+            hour: 23,
             min: 30,
             msg: 'Bom, papo ta bom...'
         }
