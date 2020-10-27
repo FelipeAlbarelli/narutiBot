@@ -1,4 +1,5 @@
 require('dotenv').config()
+const http = require('http');
 const Twitter = require('twitter');
 const configSch = require('./schedule');
 const functions = require('./functions');
@@ -32,3 +33,9 @@ app.stream('statuses/filter', {track: 'Naruti,naruti,Marucho,marucho,Niraji,nira
       console.log(error);
     });
   });
+
+http.createServer(function (req, res) {
+  console.log('pong');
+  res.write("I'm alive");
+  res.end();
+}).listen(8080);
